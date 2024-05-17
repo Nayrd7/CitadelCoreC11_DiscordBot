@@ -1,1 +1,10 @@
-# CitadelCoreC9_DiscordBot
+# Citadel Core [C9] - Discord Bot
+
+- Citadel Core [C9] - это специальный бот дискорд, созданный для проекта сервера Garry's Mod: Half Life 2 RolePlay
+
+### Его возможности:
+- _На данный момент нету_
+
+### Задумки для использования:
+- Публикация новостей
+- тд
