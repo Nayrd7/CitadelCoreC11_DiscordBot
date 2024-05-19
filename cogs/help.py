@@ -6,7 +6,7 @@ class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='help')
+    @commands.slash_command(name='хелп', description='Показывает список всех доступных вам комманд.')
     async def help(self, interaction):
         embed = disnake.Embed(
             color=0xffffff

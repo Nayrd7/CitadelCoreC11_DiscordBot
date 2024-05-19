@@ -8,36 +8,36 @@ class Ban(commands.Cog):
 
     @commands.slash_command(name='бан')
     @commands.has_permissions(ban_members=True)
-    async def ban(self, inter, user: disnake.User, reason: str):
-        bot_reason = f'Модератор: {inter.author.name}. Причина бана: {reason}.'
+    async def ban(self, interaction, user: disnake.User, reason: str):
+        bot_reason = f'Модератор: {interaction.author.name}. Причина бана: {reason}.'
 
         embed_notf = disnake.Embed(
             title='Модератор использовал комманду "/ban"',
-            description=f'Участник <@{user.id}> Был забанен на сервере.\nПо причине: ****{reason}****.\nМодератор: <@{inter.author.id}>.',
+            description=f'Участник <@{user.id}> Был забанен на сервере.\nПо причине: ****{reason}****.\nМодератор: <@{interaction.author.id}>.',
             color=disnake.Color.red()
         )
 
         embed_user = disnake.Embed(
-            title='Уведомление о бане',
-            description=f'Вы были забанены на сервере ****{inter.guild.name}****.\nПо причине: ****{reason}****\nМодератор: ****<@{inter.author.id}>****.',
+            title='Вы были забанены на сервере ****{interaction.guild.name}****.',
+            description=f'По причине: ****{reason}****\nМодератор: ****<@{interaction.author.id}>****.',
             color=disnake.Color.red()
         )
 
-        await inter.response.send_message(embed=embed_notf)
+        await interaction.response.send_message(embed=embed_notf)
         await user.send(embed=embed_user)
-        await inter.guild.ban(user, reason=bot_reason)
+        await interaction.guild.ban(user, reason=bot_reason)
 
     @commands.slash_command(name='разбан')
     @commands.has_permissions(ban_members=True)
-    async def unban(self, inter, user: disnake.User):
+    async def unban(self, interaction, user: disnake.User):
         embed_notf = disnake.Embed(
             title='Модератор использовал комманду "/unban"',
-            description=f'Участник <@{user.id}> Был разбанен на сервере.\nМодератор: <@{inter.author.id}>.',
+            description=f'Участник <@{user.id}> Был разбанен на сервере.\nМодератор: <@{interaction.author.id}>.',
             color=disnake.Color.red()
         )
 
-        await inter.response.send_message(embed=embed_notf)
-        await inter.guild.unban(user)
+        await interaction.response.send_message(embed=embed_notf)
+        await interaction.guild.unban(user)
 
 
 def setup(bot):

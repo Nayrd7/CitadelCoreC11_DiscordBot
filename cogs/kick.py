@@ -18,8 +18,8 @@ class Kick(commands.Cog):
         )
 
         embed_user = disnake.Embed(
-            title='Уведомление о кике',
-            description=f'Вы были кикнуты с сервера ****{interaction.guild.name}****\nПо причине: ****{reason}****\nМодератор: <@{interaction.author.id}>.',
+            title=f'Вы были кикнуты с сервера ****{interaction.guild.name}****',
+            description=f'По причине: ****{reason}****\nМодератор: <@{interaction.author.id}>.',
             color=disnake.Color.red()
         )
 

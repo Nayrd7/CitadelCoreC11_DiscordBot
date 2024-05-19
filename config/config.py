@@ -13,6 +13,16 @@ member_leave = '1241051344178253948'
 member_boost = '1241051344178253948'
 
 
+# Links
+
+
+boosty = 'https://boosty.to/citadel.core.c9'
+
+discord = 'https://discord.gg/7n8HQMKyHx'
+
+telegramm = 'https://t.me/citadel_core_c9'
+
+
 # Images
 
 

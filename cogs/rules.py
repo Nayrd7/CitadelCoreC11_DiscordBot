@@ -19,19 +19,19 @@ class Rules(commands.Cog):
         category1.set_image(f'{cfg.placeholder}')
 
         rule1 = disnake.Embed(color=0xff0000)
-        rule1.add_field(name='', value='> ****1.1 • Оскорбления → унижение → угрозы в адрес участников****', inline=False)
+        rule1.add_field(name='', value='> ****1.1 • Оскорбления / унижение / угрозы в адрес участников****', inline=False)
         rule1.add_field(name='Наказание:', value='```Мьют```', inline=True)
         rule1.add_field(name='Срок:', value='```1 → 4 часа```', inline=True)
         rule1.set_image(f'{cfg.placeholder}')
 
         rule2 = disnake.Embed(color=0xff0000)
-        rule2.add_field(name='', value='> ****1.2 • Неадекватное → токсичное поведение****', inline=False)
+        rule2.add_field(name='', value='> ****1.2 • Неадекватное / токсичное поведение****', inline=False)
         rule2.add_field(name='Наказание:', value='```Мьют```', inline=True)
         rule2.add_field(name='Срок:', value='```4 → 8 → 12 часов```', inline=True)
         rule2.set_image(f'{cfg.placeholder}')
 
         rule3 = disnake.Embed(color=0xff0000)
-        rule3.add_field(name='', value='> ****1.3 • Разведение → поддержка конфликтных ситуаций****', inline=False)
+        rule3.add_field(name='', value='> ****1.3 • Разведение / поддержка конфликтных ситуаций****', inline=False)
         rule3.add_field(name='Наказание:', value='```Мьют```', inline=True)
         rule3.add_field(name='Срок:', value='```3 → 7 дней```', inline=True)
         rule3.set_image(f'{cfg.placeholder}')
@@ -73,7 +73,7 @@ class Rules(commands.Cog):
         rule9.set_image(f'{cfg.placeholder}')
 
         rule10 = disnake.Embed(color=0xff0000)
-        rule10.add_field(name='', value='> ****1.10 • Шумы → посторонние звуки, мешающие участникам голосового чата****', inline=False)
+        rule10.add_field(name='', value='> ****1.10 • Шумы / посторонние звуки, мешающие участникам голосового чата****', inline=False)
         rule10.add_field(name='Наказание:', value='```Мьют микрофона```', inline=True)
         rule10.add_field(name='Срок:', value='```До исправления```', inline=True)
         rule10.set_image(f'{cfg.placeholder}')
@@ -144,6 +144,7 @@ class Rules(commands.Cog):
         embed_update_time = disnake.Embed(color=0xff0000, title=f'Последнее обновление правил было: {cool_time}')
         embed_update_time.set_image(f'{cfg.placeholder}')
 
+        await ctx.purge
         await ctx.send(embeds=[category1, rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
         await ctx.send(embeds=[rule10, rule11, category2, rule12, rule13, rule14, rule15, rule16, rule17, rule18])
         await ctx.send(embeds=[rule19, rule20, embed_update_time])
