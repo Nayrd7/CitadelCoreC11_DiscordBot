@@ -13,19 +13,27 @@ class Mute(commands.Cog):
     async def mute(
             self,
             interaction,
-            user: disnake.Member,
+            user: disnake.Member = commands.Param(name='участник', description="Упомяните или введите id участника"),
             term: str = commands.Param(name='срок', description="Введите время мьюта"),
-            time: str = commands.Param(name='время', choices=['Дни', 'Минуты', 'Секунды']),
+            time: str = commands.Param(name='время', description='Введите формат времени', choices=['Дни', 'Часы', 'Минуты', 'Секунды']),
             reason: str = commands.Param(name='причина', description="Введите причину мьюта")
     ):
         if time.lower() == 'дни':
             term = datetime.datetime.now() + datetime.timedelta(days=int(term))
+        elif time.lower() == 'часы':
+            term = datetime.datetime.now() + datetime.timedelta(hours=int(term))
         elif time.lower() == 'минуты':
             term = datetime.datetime.now() + datetime.timedelta(minutes=int(term))
         elif time.lower() == 'секунды':
             term = datetime.datetime.now() + datetime.timedelta(seconds=int(term))
         else:
-            term = datetime.datetime.now() + datetime.timedelta(hours=int(term))
+            embed_error = disnake.Embed(
+                title='',
+                description=f'Неверный ввод команды: Неправильно выбрано время(Секунды, Минуты, Часы, Дни)',
+                color=disnake.Color.yellow()
+            )
+            await interaction.response.send_message(embed=embed_error, ephemeral=True)
+            return
 
         cool_time = disnake.utils.format_dt(term, style='R')
         bot_reason = f'Модератор: {interaction.author.name}. Причина: {reason}'
@@ -56,7 +64,11 @@ class Mute(commands.Cog):
 
     @commands.slash_command(name='размьют', description='Размьючивает участника сервера')
     @commands.has_permissions(moderate_members=True)
-    async def unmute(self, interaction, user: disnake.Member):
+    async def unmute(
+            self,
+            interaction,
+            user: disnake.Member = commands.Param(name='участник', description="Упомяните или введите id участника")
+    ):
         if user.current_timeout:
             embed_notf = disnake.Embed(
                 title='Модератор использовал комманду "/unmute"',

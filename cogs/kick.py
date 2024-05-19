@@ -6,9 +6,14 @@ class Kick(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='кик')
+    @commands.slash_command(name='кик', description='Выгоняет участника с сервера, с возможностью возврата')
     @commands.has_permissions(kick_members=True)
-    async def kick(self, interaction, user: disnake.User, reason: str):
+    async def kick(
+            self,
+            interaction,
+            user: disnake.User = commands.Param(name='участник', description="Упомяните или введите id участника"),
+            reason: str = commands.Param(name='причина', description='Введите причину кика')
+    ):
         bot_reason = f'Модератор: {interaction.author.name}. Причина кика: {reason}.'
 
         if interaction.guild.get_member(user.id) is None:

@@ -6,7 +6,7 @@ class Ban(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='бан')
+    @commands.slash_command(name='бан', description='Блокирует участника на сервере')
     @commands.has_permissions(ban_members=True)
     async def ban(self, interaction, user: disnake.User, reason: str):
         bot_reason = f'Модератор: {interaction.author.name}. Причина бана: {reason}.'
@@ -37,9 +37,13 @@ class Ban(commands.Cog):
             await user.send(embed=embed_user)
             await interaction.guild.ban(user, reason=bot_reason)
 
-    @commands.slash_command(name='разбан')
+    @commands.slash_command(name='разбан', description='Разблокирует участника на сервере')
     @commands.has_permissions(ban_members=True)
-    async def unban(self, interaction, user: disnake.User):
+    async def unban(
+            self,
+            interaction,
+            user: disnake.User = commands.Param(name='участник', description="Упомяните или введите id участника")
+    ):
         try:
             await interaction.guild.fetch_ban(user)
             embed_notf = disnake.Embed(

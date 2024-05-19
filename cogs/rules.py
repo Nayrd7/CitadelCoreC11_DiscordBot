@@ -9,7 +9,7 @@ class Rules(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='rules', aliases=['правила'])
+    @commands.command(name='правила', aliases=['rules'])
     @commands.has_permissions(administrator=True)
     async def rules(self, ctx):
         time = datetime.datetime.now()

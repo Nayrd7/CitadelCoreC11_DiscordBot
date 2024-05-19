@@ -8,9 +8,13 @@ class Clear(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='очистить', aliases=['clear'])
+    @commands.slash_command(name='очистить', description='Удаляет указанное колличество сообщений с чата')
     @commands.has_permissions(administrator=True)
-    async def clear(self, interaction, amout: int):
+    async def clear(
+            self,
+            interaction,
+            amout: int = commands.Param(name='колличество', description="Введите колличество сообщений, которые нужно удалить")
+    ):
         embed = disnake.Embed(
             description='# Чат был очищен',
             colour=0x3fe24a

@@ -78,7 +78,7 @@ class AdmmenuModalSend(commands.Cog):
         self.bot = bot
         self.persistent_views_added = False
 
-    @commands.command(name='админменю', description='Устанавливает панель администратора')
+    @commands.command(name='админменю', aliases=['admmenu'], description='Устанавливает панель администратора')
     @commands.has_permissions(administrator=True)
     async def admmenu(self, interaction: disnake.AppCmdInter):
         view = AdmmenuButton()
