@@ -11,6 +11,15 @@ class Kick(commands.Cog):
     async def kick(self, interaction, user: disnake.User, reason: str):
         bot_reason = f'Модератор: {interaction.author.name}. Причина кика: {reason}.'
 
+        if interaction.guild.get_member(user.id) is None:
+            embed_notf = disnake.Embed(
+                title='',
+                description=f'Участник не был найден на сервере.',
+                color=disnake.Color.green()
+            )
+            await interaction.response.send_message(embed=embed_notf, ephemeral=True)
+            return
+
         embed_notf = disnake.Embed(
             title='Модератор использовал комманду "/kick"',
             description=f'Участник <@{user.id}> был кикнут с сервера.\nПо причине: ****{reason}****\nМодератор: <@{interaction.author.id}>.',
