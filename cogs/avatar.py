@@ -6,7 +6,7 @@ class Avatar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='аватар', description='Даёт возмонжость найти и скачать понравившийся вам аватар любого участника сервера')
+    @commands.slash_command(name='аватар', description='Даёт возможность получить понравившийся вам аватар любого участника сервера')
     async def avatar(self, interaction, member: disnake.Member = None):
         user = member or interaction.author
 
