@@ -144,7 +144,7 @@ class Rules(commands.Cog):
         embed_update_time = disnake.Embed(color=0xff0000, title=f'Последнее обновление правил было: {cool_time}')
         embed_update_time.set_image(f'{cfg.placeholder}')
 
-        await ctx.purge
+        await ctx.channel.purge(limit=1)
         await ctx.send(embeds=[category1, rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
         await ctx.send(embeds=[rule10, rule11, category2, rule12, rule13, rule14, rule15, rule16, rule17, rule18])
         await ctx.send(embeds=[rule19, rule20, embed_update_time])
