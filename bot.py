@@ -51,7 +51,7 @@ async def on_member_update(before, after):
     if before.premium_since is None and after.premium_since is not None:
         channel = bot.get_channel(int(cfg.member_boost))
         embed = disnake.Embed(
-            title='Сервер был забущен',
+            title='Сервер был запущен',
             description=f'{after.name}, большое спасибо друг!',
             colour=disnake.Color.purple()
         )

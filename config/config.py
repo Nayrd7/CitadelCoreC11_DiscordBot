@@ -23,6 +23,16 @@ discord = 'https://discord.gg/7n8HQMKyHx'
 telegramm = 'https://t.me/citadel_core_c9'
 
 
+# Server Links
+
+
+site = 'https://sites.google.com/view/citadel-core'
+
+regulation_alliance = 'https://docs.google.com/document/d/1P-72cg7XPzleYKt5kufOggW6qdhkZlRFzlJdB2buN_U/edit?usp=sharing'
+
+lore = 'https://docs.google.com/document/d/1dREcDgIZ0LL64hA1DFQN0AuCkOm6SF85DoKHpIvndwY/edit?usp=sharing'
+
+
 # Images
 
 

@@ -22,7 +22,7 @@ class Kick(commands.Cog):
                 description=f'Участник не был найден на сервере.',
                 color=disnake.Color.green()
             )
-            await interaction.response.send_message(embed=embed_notf, ephemeral=True)
+            await interaction.response.send_message(embed=embed_notf, ephemeral=T1rue)
             return
 
         embed_notf = disnake.Embed(
