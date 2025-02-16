@@ -74,8 +74,8 @@ class AdmmenuButton(disnake.ui.View):
 
     # @disnake.ui.button(label="📟 Написать участнику в лс", style=disnake.ButtonStyle.green, custom_id="admmenubutton2")
     # async def admmenubutton1(self, button: disnake.ui.Button, interaction: disnake.Interaction):
-        # modal = AdmmenuModal()
-        # await interaction.response.send_modal(modal)
+    #     modal = AdmmenuModal()
+    #     await interaction.response.send_modal(modal)
 
 
 class AdmmenuModalSend(commands.Cog):

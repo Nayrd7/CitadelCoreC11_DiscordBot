@@ -16,7 +16,7 @@ member_boost = '1241051344178253948'
 # Links
 
 
-boosty = 'https://boosty.to/citadel.core.c9'
+boosty = 'https://boosty.to/nayrd'
 
 discord = 'https://discord.gg/7n8HQMKyHx'
 
